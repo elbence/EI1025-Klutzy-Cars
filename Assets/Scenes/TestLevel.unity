@@ -463,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568038454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.43, y: 1.5612235, z: -2.61}
+  m_LocalPosition: {x: -3.1, y: 1.5612235, z: -2.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -650,7 +650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682856005}
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 0, y: 14.855752, z: -15.32089}
+  m_LocalPosition: {x: 10.8, y: 14.855752, z: -42.920895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -975,7 +975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754314483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 10.8, y: 2, z: -27.6}
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1169,13 +1169,13 @@ MonoBehaviour:
   wheelFrontRight: 1
   wheelBackLeft: 0
   wheelBackRight: 0
-  restLength: 0.5
-  springTravel: 0.2
+  restLength: 0.3
+  springTravel: 0.15
   springStiffness: 30
-  damperStiffness: 5
+  damperStiffness: 6
   wheelRadius: 0.3
   steerAngle: 0
-  steerTime: 9
+  steerTime: 8
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: 0, y: 14.855752, z: -15.32089}
+  m_LocalPosition: {x: 10.8, y: 14.855752, z: -42.920895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1343,13 +1343,13 @@ MonoBehaviour:
   wheelFrontRight: 0
   wheelBackLeft: 0
   wheelBackRight: 0
-  restLength: 0.5
-  springTravel: 0.2
+  restLength: 0.3
+  springTravel: 0.15
   springStiffness: 30
-  damperStiffness: 5
+  damperStiffness: 6
   wheelRadius: 0.3
   steerAngle: 0
-  steerTime: 9
+  steerTime: 8
 --- !u!1 &1108892532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,7 +1374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108892532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.16, y: 1.3830017, z: -4.99}
+  m_LocalPosition: {x: -16.8, y: 1.3830017, z: -4.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1779,13 +1779,13 @@ MonoBehaviour:
   wheelFrontRight: 0
   wheelBackLeft: 0
   wheelBackRight: 1
-  restLength: 0.5
-  springTravel: 0.2
+  restLength: 0.3
+  springTravel: 0.15
   springStiffness: 30
-  damperStiffness: 5
+  damperStiffness: 6
   wheelRadius: 0.3
   steerAngle: 0
-  steerTime: 9
+  steerTime: 8
 --- !u!1 &1819583369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,8 +2038,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890810410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9836533, y: 1.6319699, z: 9.040659}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 16, y: 1.6319699, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2047,7 +2047,7 @@ Transform:
   - {fileID: 629933442}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2031310777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,13 +2096,13 @@ MonoBehaviour:
   wheelFrontRight: 0
   wheelBackLeft: 1
   wheelBackRight: 0
-  restLength: 0.5
-  springTravel: 0.2
+  restLength: 0.3
+  springTravel: 0.15
   springStiffness: 30
-  damperStiffness: 5
+  damperStiffness: 6
   wheelRadius: 0.3
   steerAngle: 0
-  steerTime: 9
+  steerTime: 8
 --- !u!1 &2098952681
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,7 +2195,7 @@ Transform:
   m_GameObject: {fileID: 2098952681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 40}
+  m_LocalScale: {x: 60, y: 1, z: 80}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
