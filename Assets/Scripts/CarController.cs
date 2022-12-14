@@ -5,6 +5,8 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     // Settings
+    public float currentHealth;
+    public HealthBar healthBar;
     public float MoveSpeed = 50;
     public float MaxSpeed = 15;
     public float Drag = 0.98f;
@@ -17,6 +19,12 @@ public class CarController : MonoBehaviour
     private float AxisVertical;
     private float AxisHorizontal;
     private float TrailAngle;
+    private float maxHealth = 100f;
+
+    void Start() {
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
+    }
 
     // Update is called once per frame
     void Update() {
@@ -66,6 +74,8 @@ public class CarController : MonoBehaviour
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Hitted by police!");
+            currentHealth -= 10f;
+            healthBar.setHealth(currentHealth);
         }
     }
 }
