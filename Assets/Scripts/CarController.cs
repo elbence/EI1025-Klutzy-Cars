@@ -4,50 +4,57 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public WheelController[] wheels;
-    private float wheelAngle;
+    // Settings
+    public float MoveSpeed = 50;
+    public float MaxSpeed = 15;
+    public float Drag = 0.98f;
+    public float SteerAngle = 20;
+    public float Traction = 1;
+    public TrailRenderer[] trails;
 
-    [Header("Car Specs")]
-    public float wheelBase; // in meters
-    public float rearTrack; // in meters
-    public float turnRadius; // in meters
-
-    [Header("Inputs")]
-    public float steerInput;
-    private float ackermannAngleLeft;
-    private float ackermannAngleRight;
+    // Variables
+    private Vector3 MoveForce;
+    private float AxisVertical;
+    private float AxisHorizontal;
+    private float TrailAngle;
 
     // Update is called once per frame
-    void Update()
-    {
-        steerInput = Input.GetAxis("Horizontal");
+    void Update() {
 
-        if (steerInput > 0) // is turning right
-        {
-            ackermannAngleLeft = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius + (rearTrack / 2))) * steerInput;
-            ackermannAngleRight = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius - (rearTrack / 2))) * steerInput;
+        // Getting the inputs
+        GetInputs();
 
-        } else if (steerInput < 0) // is turning left
-        {
-            ackermannAngleLeft = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius - (rearTrack / 2))) * steerInput;
-            ackermannAngleRight = Mathf.Rad2Deg * Mathf.Atan(wheelBase / (turnRadius + (rearTrack / 2))) * steerInput;
+        // Moving
+        MoveForce += transform.forward * MoveSpeed * AxisVertical * Time.deltaTime;
+        transform.position += MoveForce * Time.deltaTime;
 
-        } else 
-        {
-            ackermannAngleLeft = 0;
-            ackermannAngleRight = 0;
-        }
+        // Steering
+        float steerInput = AxisHorizontal;
+        transform.Rotate(Vector3.up * steerInput * MoveForce.magnitude * SteerAngle * Time.deltaTime);
 
-        foreach (WheelController w in wheels) 
-        {
-            if (w.wheelFrontLeft)
-            {
-                w.steerAngle = ackermannAngleLeft;
+        // Drag and max speed limit
+        MoveForce *= Drag;
+        MoveForce = Vector3.ClampMagnitude(MoveForce, MaxSpeed);
+
+        // Traction
+        Debug.DrawRay(transform.position, MoveForce.normalized * 3);
+        Debug.DrawRay(transform.position, transform.forward * 3, Color.blue);
+        MoveForce = Vector3.Lerp(MoveForce.normalized, transform.forward, Traction * Time.deltaTime) * MoveForce.magnitude;
+    
+        // Trails render
+        TrailAngle = Vector3.Dot(transform.forward, MoveForce.normalized);
+        // Debug.Log(TrailAngle);
+        foreach(TrailRenderer trail in trails) {
+            if (TrailAngle >= 0f && TrailAngle <= 0.93f) {
+                trail.emitting = true;
+            } else {
+                trail.emitting = false;
             }
-            if (w.wheelFrontRight)
-            {
-                w.steerAngle = ackermannAngleRight;
-            }
         }
+    }
+
+    void GetInputs() {
+        AxisHorizontal = Input.GetAxis("Horizontal");
+        AxisVertical = Input.GetAxis("Vertical");
     }
 }
