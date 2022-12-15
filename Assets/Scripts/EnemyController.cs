@@ -21,13 +21,13 @@ public class EnemyController : MonoBehaviour
     private float TrailAngle;
     private float reaction;
 
-    void Start() {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
     // Update is called once per frame
     void Update() {
 
+        if (target == null) {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        
         // Getting the inputs
         GetInputs();
 

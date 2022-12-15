@@ -6,7 +6,6 @@ public class CarController : MonoBehaviour
 {
     // Settings
     public float currentHealth;
-    public HealthBar healthBar;
     public float MoveSpeed = 50;
     public float MaxSpeed = 15;
     public float Drag = 0.98f;
@@ -15,6 +14,7 @@ public class CarController : MonoBehaviour
     public TrailRenderer[] trails;
 
     // Variables
+    private HealthBar healthBar;
     private Vector3 MoveForce;
     private float AxisVertical;
     private float AxisHorizontal;
@@ -22,6 +22,7 @@ public class CarController : MonoBehaviour
     private float maxHealth = 100f;
 
     void Start() {
+        healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
     }
