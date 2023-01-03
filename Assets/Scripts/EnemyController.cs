@@ -1,35 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class CarController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    // Settings
-    public float currentHealth;
+       // Settings
     public float MoveSpeed = 50;
     public float MaxSpeed = 15;
     public float Drag = 0.98f;
     public float SteerAngle = 20;
     public float Traction = 1;
     public TrailRenderer[] trails;
+    public Transform target;
 
     // Variables
-    private HealthBar healthBar;
     private Vector3 MoveForce;
     private float AxisVertical;
     private float AxisHorizontal;
     private float TrailAngle;
-    private float maxHealth = 100f;
-
-    void Start() {
-        healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
-        currentHealth = maxHealth;
-        healthBar.setMaxHealth(maxHealth);
-    }
+    private float reaction;
 
     // Update is called once per frame
     void Update() {
 
+        if (target == null) {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        
         // Getting the inputs
         GetInputs();
 
@@ -63,20 +61,21 @@ public class CarController : MonoBehaviour
     }
 
     void GetInputs() {
-        AxisHorizontal = Input.GetAxis("Horizontal");
-        AxisVertical = Input.GetAxis("Vertical");
+        float targetPlaneAngle = vector3AngleOnPlane(target.position, transform.position, -transform.up, transform.forward);
+        Vector3 newRotation = new Vector3(0, targetPlaneAngle, 0);
+        transform.Rotate(newRotation, Space.Self);
+
+        Vector3 aux = target.position - transform.position;
+        reaction = Vector3.Dot(transform.forward, aux.normalized);
+
+        AxisVertical = reaction;
     }
 
-    //Detect collisions between the GameObjects with Colliders attached
-    void OnCollisionEnter(Collision collision)
+    float vector3AngleOnPlane(Vector3 from, Vector3 to, Vector3 planeNormal, Vector3 toZeroAngle)
     {
-        //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (collision.gameObject.tag == "Enemy")
-        {
-            //If the GameObject has the same tag as specified, output this message in the console
-            Debug.Log("Hitted by police!");
-            currentHealth -= 10f;
-            healthBar.setHealth(currentHealth);
-        }
-    }
+        Vector3 projectedVector = Vector3.ProjectOnPlane(from - to, planeNormal);
+        float projectedVectorAngle = Vector3.SignedAngle(projectedVector, toZeroAngle, planeNormal);
+
+        return projectedVectorAngle;
+    } 
 }
