@@ -242,8 +242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -78.07654, y: 70.930786}
-  m_SizeDelta: {x: 3404.8032, y: 1233.2175}
+  m_AnchoredPosition: {x: 213.65234, y: 70.930786}
+  m_SizeDelta: {x: 3988.2612, y: 1233.2175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574885899
 MonoBehaviour:
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1509330406}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuSeleccionPersonaje, Assembly-CSharp
         m_MethodName: SiguientePersonaje
         m_Mode: 1
@@ -568,7 +568,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1509330406}
-        m_TargetAssemblyTypeName: MenuSeleccionPersonaje, Assembly-CSharp
+        m_TargetAssemblyTypeName: MenuSeleccionPersonaje2, Assembly-CSharp
         m_MethodName: IniciarJuego
         m_Mode: 1
         m_Arguments:
@@ -576,8 +576,8 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TestLevel
-          m_BoolArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1049073348
 MonoBehaviour:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1509330406}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuSeleccionPersonaje, Assembly-CSharp
         m_MethodName: AnteriorPersoanje
         m_Mode: 1
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1509330401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231aada14471e3f4eaf4a134d997e65f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7915aaae836b6994c8a4bafe35f97e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imagen: {fileID: 1210122247}
