@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402090555353744008}
   - component: {fileID: 8564944373726191395}
-  - component: {fileID: 1180646992251572953}
+  - component: {fileID: 8642186162375197362}
   - component: {fileID: 1440751347227607613}
   m_Layer: 0
   m_Name: police
@@ -315,7 +315,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1180646992251572953
+--- !u!65 &8642186162375197362
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,8 +326,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4846373, y: 1.2595563, z: 3.0317287}
-  m_Center: {x: 0.0016236305, y: 0.6875845, z: 0.003891945}
+  m_Size: {x: 1.3405004, y: 1.1732897, z: 3.0303125}
+  m_Center: {x: -0.00033211708, y: 0.672023, z: -0.004703045}
 --- !u!114 &1440751347227607613
 MonoBehaviour:
   m_ObjectHideFlags: 0
