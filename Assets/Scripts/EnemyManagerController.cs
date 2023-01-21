@@ -7,7 +7,7 @@ public class EnemyManagerController : MonoBehaviour
     public Transform[] spawnPositions;
     [SerializeField]
     public GameObject enemyPrefab;
-    public static int maxNumberOfEnemies;
+    public int maxNumberOfEnemies;
     public static int currentNumberOfEnemies = 0;
     public float spawnStart;
     public float spawnInterval;
