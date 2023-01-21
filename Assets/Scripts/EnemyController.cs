@@ -21,15 +21,55 @@ public class EnemyController : MonoBehaviour
     private float TrailAngle;
     private float reaction;
 
+    private Vector3 TransformAdjusted;
+    private bool touchingFloor;
+
+
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
 
         if (target == null) {
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        // Bit shift the index of the layer (8) to get a bit mask
+        int layerMask = 1 << 0;
+
+        RaycastHit hit;
+        TransformAdjusted.x = transform.position.x;
+        TransformAdjusted.y = transform.position.y + 1;
+        TransformAdjusted.z = transform.position.z;
+    
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(TransformAdjusted, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.DrawRay(TransformAdjusted, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+            // Debug.Log("Did Hit");
+            if (hit.distance <= 1.08) {
+                touchingFloor = true;
+            } else {
+                touchingFloor = false;
+            }
+        }
+        else
+        {
+            Debug.DrawRay(TransformAdjusted, transform.TransformDirection(Vector3.down) * 1000, Color.white);
+            // Debug.Log("Did not Hit");
+            touchingFloor = false;
+        }
         
         // Getting the inputs
-        GetInputs();
+        if (touchingFloor) {
+            GetInputs();
+        }
+        // Si no toca suelo || volcado
+        else {
+            if (AxisVertical - 0.08f >= 0) {
+                AxisVertical -= 0.08f;
+            } else if (AxisVertical != 0) {
+                AxisVertical = 0f;
+            }
+        }
 
         // Moving
         MoveForce += transform.forward * MoveSpeed * AxisVertical * Time.deltaTime;
