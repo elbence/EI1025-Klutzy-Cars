@@ -83,10 +83,10 @@ public class CarController : MonoBehaviour
 
         // Moving (Calc force + move transform)
         MoveForce += transform.forward * MoveSpeed * AxisVertical * Time.deltaTime;
-        //transform.position += MoveForce * Time.deltaTime;
+        transform.position += MoveForce * Time.deltaTime;
         
-        Vector3 tmp = transform.forward * AxisVertical * speed;
-        rb.velocity =  new Vector3(tmp.x, rb.velocity.y, tmp.z);
+        //Vector3 tmp = transform.forward * AxisVertical * speed;
+        //rb.velocity =  new Vector3(tmp.x, rb.velocity.y, tmp.z);
 
 
         // Steering
@@ -96,10 +96,7 @@ public class CarController : MonoBehaviour
 
         // Drag and max speed limit
         MoveForce *= Drag;
-        // If going forward
-            MoveForce = Vector3.ClampMagnitude(MoveForce, MaxSpeed);
-        // If going reverse (less speed)
-            // Code here
+        MoveForce = Vector3.ClampMagnitude(MoveForce, MaxSpeed);
 
 
         // Traction
