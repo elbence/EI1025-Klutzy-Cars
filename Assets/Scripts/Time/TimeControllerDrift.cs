@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TimeController : MonoBehaviour
+public class TimeControllerDrift : MonoBehaviour
 {
     [SerializeField]
     private float timeMultiplier;
@@ -50,7 +50,7 @@ public class TimeController : MonoBehaviour
 
     // Lights
     [SerializeField]
-    private LightsManager lightsManager;
+    private DriftLightsManager lightsManager;
 
     private int lightsState;
 
