@@ -16636,6 +16636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuDePausa: {fileID: 264081539}
+  menuDeSettings: {fileID: 1958857831}
 --- !u!4 &1540105897
 Transform:
   m_ObjectHideFlags: 0

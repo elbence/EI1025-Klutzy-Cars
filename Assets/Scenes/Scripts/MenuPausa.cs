@@ -6,28 +6,32 @@ using UnityEngine.SceneManagement;
 public class MenuPausa : MonoBehaviour
 {
 	public GameObject menuDePausa;
+	public GameObject menuDeSettings;
+
     private bool menuOn;
+	private bool escPulsado;
+
+	void Start() {
+		escPulsado = false;
+	}
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Escape))
+		if(Input.GetKeyDown(KeyCode.Escape) && !menuDeSettings.activeSelf) // check if settings menu is active !!
 		{
+			escPulsado = true;
 			menuOn = !menuOn;
-	
 		}
 
-		if(menuOn == true)
-		{
-			menuDePausa.SetActive(true);
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
-			Time.timeScale = 0;
+		if (escPulsado) {
+			escPulsado = false;	
+			if (menuOn == true) {
+				menuActivar();
+			} else {
+				menuDesactivar();
+			}
+		}
 
-		}
-		else
-		{
-			menuDesactivar();
-		}
 	}
 
 	public void Continuar()
@@ -41,12 +45,18 @@ public class MenuPausa : MonoBehaviour
 		SceneManager.LoadScene(sceneName);
 	}
 
+	private void menuActivar() {
+		menuDePausa.SetActive(true);
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+		Time.timeScale = 0;
+	}
+
 	private void menuDesactivar()
 	{
 		menuDePausa.SetActive(false);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		Time.timeScale = 1;
-
 	}
 }
