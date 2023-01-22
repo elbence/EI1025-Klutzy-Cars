@@ -23,7 +23,12 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 TransformAdjusted;
     private bool touchingFloor;
+    public float checkStart;
+    public float checkInterval;
 
+    void Start() {
+        InvokeRepeating("checkCarStatusAndDestroy", checkStart, checkInterval);
+    }
 
     // Update is called once per frame
     void FixedUpdate() {
@@ -117,5 +122,15 @@ public class EnemyController : MonoBehaviour
         float projectedVectorAngle = Vector3.SignedAngle(projectedVector, toZeroAngle, planeNormal);
 
         return projectedVectorAngle;
-    } 
+    }
+
+    bool isTouchingFloor() {
+        return touchingFloor;
+    }
+
+    void checkCarStatusAndDestroy() {
+        if (!isTouchingFloor()) {
+            EnemyManagerController.DeleteEnemy(this.gameObject);
+        }
+    }
 }

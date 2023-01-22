@@ -349,6 +349,8 @@ MonoBehaviour:
   - {fileID: 3057152348788388697}
   - {fileID: 3096569610451574036}
   target: {fileID: 0}
+  checkStart: 5
+  checkInterval: 30
 --- !u!1 &4705287064291036050
 GameObject:
   m_ObjectHideFlags: 0
