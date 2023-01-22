@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - HealthBar
+  - GameOverMenu
   layers:
   - Default
   - TransparentFX
