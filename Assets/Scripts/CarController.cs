@@ -77,8 +77,8 @@ public class CarController : MonoBehaviour
             }
         }
 
-        Debug.Log(AxisHorizontal);
-        Debug.Log(AxisVertical);
+        // Debug.Log(AxisHorizontal);
+        // Debug.Log(AxisVertical);
 
 
         // Moving (Calc force + move transform)
