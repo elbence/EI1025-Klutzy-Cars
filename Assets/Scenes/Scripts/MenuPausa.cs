@@ -13,6 +13,7 @@ public class MenuPausa : MonoBehaviour
 
 	void Start() {
 		escPulsado = false;
+		menuDesactivar();
 	}
 
 	void Update()

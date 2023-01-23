@@ -7,8 +7,9 @@ public class InicioJugador : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-		int indexJugador = PlayerPrefs.GetInt("JugadorIndex");
-		Instantiate(GameManager.Instance.personajes[indexJugador].personajeJugable, transform.position, Quaternion.identity);
+      int indexJugador = PlayerPrefs.GetInt("JugadorIndex");
+      GameObject coche = Instantiate(GameManager.Instance.personajes[indexJugador].personajeJugable, transform.position, Quaternion.identity, transform);
+      
     }
 
 }
