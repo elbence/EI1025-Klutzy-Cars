@@ -6,7 +6,7 @@ public class DriftScore : MonoBehaviour
 {
     // This script is supposed to go on the father of the checkpoints
     [SerializeField]
-    private GameObject player;
+    private GameOverDrift gameOverScreen;
 
     private List<GameObject> checkpoints;
     private int activeCheckpoint;
@@ -42,6 +42,7 @@ public class DriftScore : MonoBehaviour
             Debug.Log("********END GAME*********");
             Debug.Log("Score:");
             Debug.Log(timer);
+            gameOverScreen.ShowEndScreen();
             // CODE HERE
         }
         
@@ -53,5 +54,10 @@ public class DriftScore : MonoBehaviour
             timer += Time.deltaTime;
         }
     }
+
+
+    public float getScore() {
+        return timer;
+    } 
 
 }

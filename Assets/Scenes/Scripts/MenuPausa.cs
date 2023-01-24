@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
+
+	[SerializeField]
+	private GameObject endGameScreen;
+
 	public GameObject menuDePausa;
 	public GameObject menuDeSettings;
 
@@ -24,7 +28,7 @@ public class MenuPausa : MonoBehaviour
 			menuOn = !menuOn;
 		}
 
-		if (escPulsado) {
+		if (escPulsado && !endGameScreen.activeSelf) {
 			escPulsado = false;	
 			if (menuOn == true) {
 				menuActivar();

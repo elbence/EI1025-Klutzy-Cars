@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+
     public CinemachineVirtualCamera cam;
     private Transform target;
 
@@ -12,6 +13,7 @@ public class CameraController : MonoBehaviour
         if (target == null) {
             target = GameObject.FindGameObjectWithTag("Player").transform;
             cam.Follow = target;
+            cam.LookAt = target;
         }
     }
 }

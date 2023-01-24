@@ -28,9 +28,11 @@ public class CarController : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody>();
-        healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
-        currentHealth = maxHealth;
-        healthBar.setMaxHealth(maxHealth);
+        if (GameObject.FindGameObjectWithTag("HealthBar") != null) {
+            healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
+            currentHealth = maxHealth;
+            healthBar.setMaxHealth(maxHealth);
+        }
         TransformAdjusted = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z );
     }
 
