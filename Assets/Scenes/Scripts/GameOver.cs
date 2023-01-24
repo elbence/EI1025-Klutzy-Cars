@@ -43,6 +43,25 @@ public class GameOver : MonoBehaviour
 		    Time.timeScale = 0;
             Debug.Log(farmScore.getScore());
             scoreText.text = string.Format("{0:N2}", farmScore.getScore()) + " points";
+            setHighScore(farmScore.getScore());
         }
+    }
+
+    void setHighScore(float scoreAct) {
+        // retrieve current highScores, search for firs higher than me
+        int i = 0;
+        float savedScore = PlayerPrefs.GetFloat("FScore" + i, -1.0f);
+        while (savedScore < scoreAct && savedScore != -1.0f) {
+            i++;
+            savedScore = PlayerPrefs.GetFloat("FScore" + i, -1.0f);
+        }
+        // save in past score found index, iterate and swap rest
+        float pastVal;
+        while (i < 5) {
+            pastVal = PlayerPrefs.GetFloat("FScore" + i, -1.0f);
+            PlayerPrefs.SetFloat("FScore" + i, scoreAct);
+            i++;
+            scoreAct = pastVal;
+        } 
     }
 }
