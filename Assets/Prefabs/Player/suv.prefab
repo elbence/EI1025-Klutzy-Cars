@@ -656,7 +656,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &865926250917412377
 BoxCollider:
@@ -692,6 +692,7 @@ MonoBehaviour:
   trails:
   - {fileID: 6007183776246967418}
   - {fileID: 7001298377406713435}
+  speed: 13
 --- !u!1 &7812547627637860727
 GameObject:
   m_ObjectHideFlags: 0

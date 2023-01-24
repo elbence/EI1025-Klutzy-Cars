@@ -13,6 +13,9 @@ public class GameOver : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
+    [SerializeField]
+    private AudioSource m_MyAudioSource;
+
 
     public CarController player;
     public GameObject menuGameOver;
@@ -22,6 +25,7 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        m_MyAudioSource.Play();
         if (GameObject.FindGameObjectWithTag("Player") != null) {
             player =  GameObject.FindGameObjectWithTag("Player").GetComponent<CarController>();
         }
@@ -44,6 +48,7 @@ public class GameOver : MonoBehaviour
             Debug.Log(farmScore.getScore());
             scoreText.text = string.Format("{0:N2}", farmScore.getScore()) + " points";
             setHighScore(farmScore.getScore());
+            m_MyAudioSource.Stop();
         }
     }
 

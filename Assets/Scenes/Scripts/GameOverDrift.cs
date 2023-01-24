@@ -12,7 +12,14 @@ public class GameOverDrift : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
+    [SerializeField]
+    private AudioSource m_MyAudioSource;
+
     public GameObject menuGameOver;
+
+    void Start() {
+        m_MyAudioSource.Play();
+    }
 
     public void ShowEndScreen() {
         menuGameOver.SetActive(true);
@@ -22,6 +29,7 @@ public class GameOverDrift : MonoBehaviour
         Debug.Log(driftScore.getScore());
         scoreText.text = string.Format("{0:N3}", driftScore.getScore()) + " points";
         setHighScore(driftScore.getScore());
+        m_MyAudioSource.Stop();
     }
 
     void setHighScore(float scoreAct) {

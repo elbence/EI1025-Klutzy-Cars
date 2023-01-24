@@ -9,7 +9,6 @@ public class SemaphorStart : MonoBehaviour
     private List<GameObject> red1;
     private List<GameObject> yellow;
 
-
     // Start is called before the first frame update
     void Start()
     {

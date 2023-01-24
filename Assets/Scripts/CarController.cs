@@ -38,7 +38,6 @@ public class CarController : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
-
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask = 1 << 0;
 
@@ -120,6 +119,7 @@ public class CarController : MonoBehaviour
                 trail.emitting = false;
             }
         }
+        
     }
 
     void GetInputs() {
@@ -139,4 +139,5 @@ public class CarController : MonoBehaviour
             healthBar.setHealth(currentHealth);
         }
     }
+
 }
