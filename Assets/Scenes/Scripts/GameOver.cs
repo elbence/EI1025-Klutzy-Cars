@@ -56,7 +56,7 @@ public class GameOver : MonoBehaviour
         // retrieve current highScores, search for firs higher than me
         int i = 0;
         float savedScore = PlayerPrefs.GetFloat("FScore" + i, -1.0f);
-        while (savedScore < scoreAct && savedScore != -1.0f) {
+        while (savedScore > scoreAct && savedScore != -1.0f) {
             i++;
             savedScore = PlayerPrefs.GetFloat("FScore" + i, -1.0f);
         }
