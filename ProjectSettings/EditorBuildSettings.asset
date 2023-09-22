@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 5527492f092bc604180850f229afa32a
+  - enabled: 1
+    path: Assets/Scenes/SeleccionCocheDrift.unity
+    guid: f6b2048b20660a34989d8b498f82d572
+  - enabled: 1
+    path: Assets/Scenes/LevelDrift.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SeleccionCocheGranja.unity
+    guid: 16be1f4b4a05b1a43b0ea9494d6f6b53
+  - enabled: 1
+    path: Assets/Scenes/LevelFarm.unity
+    guid: 4030aae0e9ff4f949a04b81d3e59e59a
   m_configObjects: {}
